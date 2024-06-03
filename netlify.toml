@@ -11,9 +11,9 @@
   PATH = "/opt/buildhome/.foundry/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 [context.deploy-preview]
-  command = "sh setup.sh && pnpm run build"
+  command = "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && nvm install go1.19.1 && sh setup.sh && pnpm run build"
   publish = "packages/client/dist"
 
 [context.branch-deploy]
-  command = "sh setup.sh && pnpm run build"
+  command = "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && nvm install go1.19.1 && sh setup.sh && pnpm run build"
   publish = "packages/client/dist"
