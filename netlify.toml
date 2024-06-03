@@ -1,14 +1,14 @@
 [build]
-  command = "sh setup.sh && pnpm run build"
-  publish = "dist"
+command = "sh setup.sh && pnpm run build"
+publish = "dist"
 
 [context.production.environment]
-  NODE_VERSION = "16"
+NODE_VERSION = "16"
 
 [context.deploy-preview]
-  command = "sh setup.sh && pnpm run build"
-  publish = "dist"
+command = "sh setup.sh && pnpm run build"
+publish = "dist"
 
 [context.branch-deploy]
-  command = "sh setup.sh && pnpm run build"
-  publish = "dist"
+command = "sh setup.sh && pnpm run build"
+publish = "dist"
