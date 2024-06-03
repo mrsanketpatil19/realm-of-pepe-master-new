@@ -1,22 +1,11 @@
 #!/bin/bash
 
-# This script sets up the environment for Netlify or Vercel
+# This script sets up the environment for Netlify
 
-# Ensure the correct Node.js version is used
-if ! command -v nvm &> /dev/null; then
-    echo "NVM not found. Installing NVM..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-fi
-
-nvm install 18
-nvm use 18
-
-# Install essential Unix commands
-if [ "$(uname)" == "Linux" ]; then
-    sudo apt-get update
-    sudo apt-get install -y coreutils
+# Install core utilities if not available
+if ! command -v mkdir &> /dev/null; then
+    echo "Core utilities are not installed. Installing..."
+    apt-get update && apt-get install -y coreutils
 fi
 
 # Install Foundry and Forge
@@ -28,8 +17,12 @@ if ! command -v forge &> /dev/null; then
     foundryup
 fi
 
-# Add foundry to PATH
-export PATH="$HOME/.foundry/bin:$PATH"
+# Ensure the correct Node.js version is used
+if [ "$(node -v)" != "v18" ]; then
+    echo "Switching to Node.js v18..."
+    nvm install 18
+    nvm use 18
+fi
 
 # Install dependencies
 pnpm install
