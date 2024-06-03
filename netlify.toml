@@ -4,9 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  PATH = "/opt/buildhome/.foundry/bin:/opt/buildhome/.nvm/versions/node/v18.20.3/bin:$PATH"
 
 [context.production.environment]
   NODE_VERSION = "18"
+  PATH = "/opt/buildhome/.foundry/bin:/opt/buildhome/.nvm/versions/node/v18.20.3/bin:$PATH"
 
 [context.deploy-preview]
   command = "sh setup.sh && pnpm run build"
