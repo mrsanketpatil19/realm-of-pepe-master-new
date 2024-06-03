@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script sets up the environment for Netlify
+# This script sets up the environment for Netlify or Vercel
 
 # Ensure the correct Node.js version is used
 if ! command -v nvm &> /dev/null; then
@@ -17,6 +17,7 @@ nvm use 18
 if ! command -v forge &> /dev/null; then
     echo "Foundry is not installed. Installing..."
     curl -L https://foundry.paradigm.xyz | bash
+    source $HOME/.bashrc
     export PATH="$HOME/.foundry/bin:$PATH"
     foundryup
 fi
