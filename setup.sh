@@ -22,14 +22,8 @@ if ! command -v forge &> /dev/null; then
     foundryup
 fi
 
-# Ensure necessary directories exist
-mkdir -p packages/client/dist
-
-# Ensure .env file exists
-if [ ! -f .env ]; then
-    echo "Creating placeholder .env file"
-    touch .env
-fi
+# Add foundry to PATH
+export PATH="$HOME/.foundry/bin:$PATH"
 
 # Install dependencies
 pnpm install
