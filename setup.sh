@@ -13,6 +13,12 @@ fi
 nvm install 18
 nvm use 18
 
+# Install essential Unix commands
+if [ "$(uname)" == "Linux" ]; then
+    sudo apt-get update
+    sudo apt-get install -y coreutils
+fi
+
 # Install Foundry and Forge
 if ! command -v forge &> /dev/null; then
     echo "Foundry is not installed. Installing..."
