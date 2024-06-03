@@ -30,7 +30,8 @@
     "@latticexyz/world": "2.0.0-alpha.1.170+76be5d21",
     "@openzeppelin/contracts": "^4.8.3",
     "@superfluid-finance/ethereum-contracts": "^1.9.1",
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "forge": "^1.0.0"
   },
   "devDependencies": {
     "@typechain/ethers-v5": "^10.2.0",
