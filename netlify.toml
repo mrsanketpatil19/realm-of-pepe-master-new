@@ -4,16 +4,18 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  GO_VERSION = "1.17.x"
   PATH = "/opt/buildhome/.foundry/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 [context.production.environment]
   NODE_VERSION = "18"
+  GO_VERSION = "1.17.x"
   PATH = "/opt/buildhome/.foundry/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 [context.deploy-preview]
-  command = "curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | bash && gimme 1.19 && sh setup.sh && pnpm run build"
+  command = "sh setup.sh && pnpm run build"
   publish = "packages/client/dist"
 
 [context.branch-deploy]
-  command = "curl -sL https://raw.githubusercontent.com/travis-ci/gimme/master/gimme | bash && gimme 1.19 && sh setup.sh && pnpm run build"
+  command = "sh setup.sh && pnpm run build"
   publish = "packages/client/dist"
