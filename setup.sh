@@ -2,9 +2,9 @@
 
 # This script sets up the environment for Netlify
 
-# Install core utilities if not available
+# Ensure coreutils is installed to provide mkdir and other essential commands
 if ! command -v mkdir &> /dev/null; then
-    echo "Core utilities are not installed. Installing..."
+    echo "coreutils is not installed. Installing..."
     apt-get update && apt-get install -y coreutils
 fi
 
