@@ -2,7 +2,7 @@
 
 # This script sets up the environment for Netlify
 
-# Install Foundry and Forge if not installed
+# Install Foundry and Forge
 if ! command -v forge &> /dev/null
 then
     echo "Foundry is not installed. Installing..."
